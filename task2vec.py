@@ -275,9 +275,9 @@ class Task2Vec:
         data_loader = _get_loader(dataset, **self.loader_opts)
 
         if optimizer == 'adam':
-            optimizer = torch.optim.Adam(self.model.fc.parameters(), lr=learning_rate, weight_decay=weight_decay)
+            optimizer = torch.optim.Adam(self.model.classifier.parameters(), lr=learning_rate, weight_decay=weight_decay)
         elif optimizer == 'sgd':
-            optimizer = torch.optim.SGD(self.model.fc.parameters(), lr=learning_rate, weight_decay=weight_decay)
+            optimizer = torch.optim.SGD(self.model.classifier.parameters(), lr=learning_rate, weight_decay=weight_decay)
         else:
             raise ValueError(f'Unsupported optimizer {optimizer}')
 
